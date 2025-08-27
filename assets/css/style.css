@@ -1,0 +1,6 @@
+/* Additional styles (non-critical) */
+input, textarea, select{width:100%;padding:.6rem;border:1px solid #e6eef6;border-radius:8px;font-size:1rem}
+label{display:block;margin-top:.6rem;font-weight:600}
+.card p{margin:0}
+.accordion{width:100%;text-align:left;padding:.8rem;border:0;background:transparent;font-weight:600;cursor:pointer;border-bottom:1px solid #eef2f6}
+.panel{padding:.8rem 0;color:var(--muted)}

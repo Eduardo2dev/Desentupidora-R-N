@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>R&N Desentupidora 24h — Rápida, Sem Quebra & Garantida</title>
+  <meta name="description" content="Desentupidora 24 horas: pias, ralos, vasos, esgoto e caixa de gordura. Atendimento rápido, sem quebra e com garantia. Orçamento grátis pelo WhatsApp." />
+  <meta name="theme-color" content="#1e3a8a" />
+  <meta property="og:title" content="R&N Desentupidora 24h — Rápida, Sem Quebra & Garantida" />
+  <meta property="og:description" content="Atendimento imediato via WhatsApp. Pias, ralos, vasos, caixa de gordura, esgoto, hidrojateamento e inspeção por câmera." />
+  <meta property="og:type" content="website" />
+
+  <!-- TailwindCSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:'#eff6ff',100:'#dbeafe',200:'#bfdbfe',300:'#93c5fd',
+              400:'#60a5fa',500:'#3b82f6',600:'#2563eb',700:'#1e3a8a',
+              800:'#111827',900:'#0b0f19',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+  <!-- Fonte -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    html { scroll-behavior: smooth; }
+    .shadow-soft { box-shadow: 0 10px 30px rgba(2,6,23,.08); }
+    .stroke-card { box-shadow: inset 0 0 0 1px rgba(2,6,23,.08); }
+    .container-tight { max-width: 1080px; }
+  </style>
+
+  <script>
+    const COMPANY = {
+      name: "R&N Desentupidora",
+      phoneRaw: "54991466797", // Substituir pelo número real
+      phoneHuman: "(54) 99146-6797",
+      city: "Caxias do Sul",
+      region: "e região",
+      whatsappTextBase: "Olá! Vim pelo site e preciso de ajuda com desentupimento."
+    };
+
+    function waLink(extra = "") {
+      const msg = encodeURIComponent(COMPANY.whatsappTextBase + (extra ? " " + extra : ""));
+      return `https://wa.me/${COMPANY.phoneRaw}?text=${msg}`;
+    }
+
+    function maskPhone(el) {
+      let v = el.value.replace(/\D/g, "").slice(0, 11);
+      if (v.length > 6)      el.value = v.replace(/(\d{2})(\d{5})(\d{0,4}).*/, "($1) $2-$3");
+      else if (v.length > 2) el.value = v.replace(/(\d{2})(\d{0,5}).*/, "($1) $2");
+      else                   el.value = v.replace(/(\d{0,2}).*/, "($1");
+    }
+
+    function submitForm(e) {
+      e.preventDefault();
+      const form = e.target;
+      const nome = form.nome.value.trim();
+      const telefone = form.telefone.value.trim();
+      const bairro = form.bairro.value.trim();
+      const servico = form.servico.value;
+      const descricao = form.descricao.value.trim();
+
+      const partes = [];
+      if (nome) partes.push(`Nome: ${nome}`);
+      if (telefone) partes.push(`Telefone: ${telefone}`);
+      if (bairro) partes.push(`Bairro: ${bairro}`);
+      if (servico) partes.push(`Serviço: ${servico}`);
+      if (descricao) partes.push(`Descrição: ${descricao}`);
+
+      const extra = partes.length ? "\n\n" + partes.join("\n") : "";
+      window.open(waLink(extra), "_blank");
+      form.reset();
+    }
+
+    function toggleMenu() {
+      document.getElementById("mobileMenu").classList.toggle("hidden");
+    }
+
+    async function copyPhone(btn) {
+      try {
+        await navigator.clipboard.writeText(COMPANY.phoneHuman);
+        btn.innerText = "Copiado!";
+        setTimeout(() => btn.innerText = "Copiar", 1800);
+      } catch (e) {}
+    }
+  </script>
+</head>
+
+<body class="bg-slate-50 text-slate-900">
+  <!-- Topbar -->
+  <div class="bg-brand-700 text-white text-sm">
+    <div class="mx-auto container-tight px-4 py-2 flex items-center justify-center gap-6">
+      <p>Atendimento 24h em <strong>Caxias do Sul</strong> e região</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+    <header class="bg-white/95 sticky top-0 z-50 border-b border-slate-200/70">
+    <div class="mx-auto container-tight px-4 py-3 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2 font-semibold text-slate-800">
+        <img src="assets/img/logo.png" alt="Logo R&N" class="h-10 w-auto">
+         <div class="leading-tight">
+          <div class="text-lg font-extrabold tracking-tight text-brand-700">R&N Desentupidora</div>
+          <div class="text-xs text-slate-500 -mt-0.5">Sem quebra • Garantia</div>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a class="hover:text-brand-600" href="#servicos">Serviços</a>
+        <a class="hover:text-brand-600" href="#como-funciona">Como funciona</a>
+        <a class="hover:text-brand-600" href="#precos">Valores</a>
+        <a class="hover:text-brand-600" href="#depoimentos">Depoimentos</a>
+        <a class="hover:text-brand-600" href="#faq">Dúvidas</a>
+        <a class="hover:text-brand-600" href="#contato">Contato</a>
+      </nav>
+
+      <div class="hidden md:flex items-center gap-3">
+       <a target="_blank" rel="noopener" href="javascript:void(0)" 
+         onclick="window.open(waLink(),'_blank')" 
+         class="inline-flex items-center gap-2 rounded-lg px-4 py-2 font-semibold shadow-soft bg-[#25D366] hover:bg-[#128C7E] text-white">
+         <class="fa-brands fa-whatsapp text-lg"></i> Chamar no WhatsApp
+       </a>
+
+      </div>
+
+      <button class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-slate-300" onclick="toggleMenu()" aria-label="Abrir menu">
+        <span class="fa fa-bars"></span>
+      </button>
+    </div>
+
+    <!-- Mobile -->
+    <div id="mobileMenu" class="md:hidden hidden border-t border-slate-200">
+      <nav class="mx-auto container-tight px-4 py-3 grid grid-cols-2 gap-2 text-sm">
+        <a class="px-3 py-2 rounded-lg hover:bg-slate-100" href="#servicos">Serviços</a>
+        <a class="px-3 py-2 rounded-lg hover:bg-slate-100" href="#como-funciona">Como funciona</a>
+        <a class="px-3 py-2 rounded-lg hover:bg-slate-100" href="#precos">Valores</a>
+        <a class="px-3 py-2 rounded-lg hover:bg-slate-100" href="#depoimentos">Depoimentos</a>
+        <a class="px-3 py-2 rounded-lg hover:bg-slate-100" href="#faq">Dúvidas</a>
+        <a class="px-3 py-2 rounded-lg hover:bg-slate-100" href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-brand-50 via-white to-white"></div>
+
+    <div class="mx-auto container-tight px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <div class="inline-flex items-center gap-2 bg-brand-100 text-brand-800 rounded-full px-3 py-1 tag mb-4">
+          <i class="fa-regular fa-clock text-sm"></i>
+          Atendimento <strong class="mx-1">24 horas</strong> — resposta imediata
+        </div>
+        <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight text-brand-800">
+          Desentupidora rápida sem quebra e com garantia
+        </h1>
+        <p class="mt-4 text-slate-700 text-lg leading-relaxed">
+          Resolvemos entupimentos de <strong>pias</strong>, <strong>ralos</strong>, <strong>vasos</strong>, <strong>esgoto</strong> e <strong>caixa de gordura</strong>. 
+          Equipe própria, equipamentos profissionais e preço justo.
+        </p>
+
+        <div class="mt-6 flex flex-col sm:flex-row gap-3">
+          <a ... class="inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 font-semibold shadow-soft bg-[#25D366] hover:bg-[#128C7E] text-white transition">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+           Pedir orçamento
+          </a>
+          <a href="#servicos" class="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 font-semibold text-slate-800 border border-slate-300 hover:bg-slate-50 transition">
+            <i class="fa-solid fa-wrench"></i>
+            Ver serviços
+          </a>
+        </div>
+
+        <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm text-slate-600">
+          <div class="flex items-center gap-2"><i class="a-solid fa-certificate text-brand-600"></i> Garantia de serviço</div>
+          <div class="flex items-center gap-2"><i class="fa-solid fa-hand-holding-dollar text-brand-600"></i> Preço justo</div>
+          <div class="flex items-center gap-2"><i class="fa-solid fa-broom text-brand-600"></i> Sem sujeira</div>
+          <div class="flex items-center gap-2"><i class="fa-solid fa-file-invoice-dollar text-brand-600"></i> Orçamento Gratuito</div>
+        </div>
+      </div>
+
+      <div class="relative">
+  <!-- Carrossel Swiper -->
+  <div class="swiper heroSwiper rounded-2xl bg-white shadow-lg overflow-hidden w-[420px] h-auto">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide h-auto">
+      <img src="assets/img/logo2.png" alt="Logo R&N" class="w-full h-auto"/>
+    </div>
+    
+    <div class="swiper-slide h-auto">
+      <img src="assets/img/logo3.png" alt="Trabalho 1" class="w-full h-auto"/>
+    </div>
+    <div class="swiper-slide h-auto">
+      <img src="assets/img/logo4.png" alt="Trabalho 2" class="w-full h-auto"/>
+    </div>
+  </div>
+    <!-- bolinhas -->
+    <div class="swiper-pagination"></div>
+
+    <!-- setas -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
+  </section>
+
+  <!-- Serviços -->
+  <section id="servicos" class="mx-auto container-tight px-4 py-16">
+    <header class="text-center max-w-2xl mx-auto mb-10">
+      <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-brand-800">Serviços de Desentupimento</h2>
+      <p class="mt-3 text-slate-600">Equipamentos modernos, técnica correta e sem quebrar desnecessariamente.</p>
+    </header>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <article class="stroke-card bg-white rounded-xl p-5 hover:shadow-soft transition">
+        <div class="flex items-start gap-3">
+          <i class="fa-solid fa-sink text-brand-600 text-xl"></i>
+          <div>
+            <h3 class="font-semibold text-lg">Pia e Cozinha</h3>
+            <p class="text-slate-600 text-sm mt-1">Desentupimento de pias, sifões e tubulações com gordura.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="stroke-card bg-white rounded-xl p-5 hover:shadow-soft transition">
+        <div class="flex items-start gap-3">
+          <i class="fa-solid fa-shower text-brand-600 text-xl"></i>
+          <div>
+            <h3 class="font-semibold text-lg">Ralos e Banheiro</h3>
+            <p class="text-slate-600 text-sm mt-1">Ralos internos/externos, box e chuveiro com escoamento lento.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="stroke-card bg-white rounded-xl p-5 hover:shadow-soft transition">
+        <div class="flex items-start gap-3">
+          <i class="fa-solid fa-toilet text-brand-600 text-xl"></i>
+          <div>
+            <h3 class="font-semibold text-lg">Vasos Sanitários</h3>
+            <p class="text-slate-600 text-sm mt-1">Desobstrução segura do vaso, sem danificar o aparelho.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="stroke-card bg-white rounded-xl p-5 hover:shadow-soft transition">
+        <div class="flex items-start gap-3">
+          <i class="fa-solid fa-box text-brand-600 text-xl"></i>
+          <div>
+            <h3 class="font-semibold text-lg">Caixa de Gordura</h3>
+            <p class="text-slate-600 text-sm mt-1">Limpeza e manutenção preventiva da caixa de gordura.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="stroke-card bg-white rounded-xl p-5 hover:shadow-soft transition">
+        <div class="flex items-start gap-3">
+          <i class="fa-solid fa-water text-brand-600 text-xl"></i>
+          <div>
+            <h3 class="font-semibold text-lg">Esgoto</h3>
+            <p class="text-slate-600 text-sm mt-1">Desobstrução de tubulações e redes coletoras.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="stroke-card bg-white rounded-xl p-5 hover:shadow-soft transition">
+        <div class="flex items-start gap-3">
+          <i class="fa-solid fa-burst text-brand-600 text-xl"></i>
+          <div>
+            <h3 class="font-semibold text-lg">Hidrojateamento</h3>
+            <p class="text-slate-600 text-sm mt-1">Jato de alta pressão para remoção profunda de resíduos.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <!-- Como funciona -->
+  <section id="como-funciona" class="bg-white">
+    <div class="mx-auto container-tight px-4 py-16">
+      <header class="text-center max-w-2xl mx-auto mb-10">
+        <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-brand-800">Como funciona</h2>
+        <p class="mt-3 text-slate-600">Processo simples, comunicação clara e resultado garantido.</p>
+      </header>
+
+      <ol class="grid md:grid-cols-4 gap-4">
+        <li class="stroke-card rounded-xl p-5">
+          <div class="flex items-start gap-3">
+            <i class="fa-solid fa-mobile-screen-button text-brand-600 text-xl"></i>
+            <div>
+              <h3 class="font-semibold">1. Fale no WhatsApp</h3>
+              <p class="text-sm text-slate-600 mt-1">Envie fotos e descreva o problema.</p>
+            </div>
+          </div>
+        </li>
+        <li class="stroke-card rounded-xl p-5">
+          <div class="flex items-start gap-3">
+            <i class="fa-solid fa-file-contract text-brand-600 text-xl"></i>
+            <div>
+              <h3 class="font-semibold">2. Orçamento rápido</h3>
+              <p class="text-sm text-slate-600 mt-1">Preço transparente e sem surpresas.</p>
+            </div>
+          </div>
+        </li>
+        <li class="stroke-card rounded-xl p-5">
+          <div class="flex items-start gap-3">
+            <i class="fa-solid fa-person-digging text-brand-600 text-xl"></i>
+            <div>
+              <h3 class="font-semibold">3. Execução</h3>
+              <p class="text-sm text-slate-600 mt-1">Equipe própria e equipamento profissional.</p>
+            </div>
+          </div>
+        </li>
+        <li class="stroke-card rounded-xl p-5">
+          <div class="flex items-start gap-3">
+            <i class="fa-solid fa-certificate text-brand-600 text-xl"></i>
+            <div>
+              <h3 class="font-semibold">4. Garantia</h3>
+              <p class="text-sm text-slate-600 mt-1">Serviço com garantia por escrito.</p>
+            </div>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Preços -->
+  <section id="precos" class="mx-auto container-tight px-4 py-16">
+    <header class="text-center max-w-2xl mx-auto mb-8">
+      <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-brand-800">Valores iniciais</h2>
+      <p class="mt-3 text-slate-600">Os valores abaixo são referências e podem variar conforme o diagnóstico.</p>
+    </header>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Plano Residencial -->
+      <article class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
+        <div class="text-sm font-semibold text-brand-700">Residencial</div>
+        <div class="mt-2 text-3xl font-extrabold">R$ 149<span class="text-base font-semibold text-slate-500"> / a partir</span></div>
+        <ul class="mt-4 space-y-2 text-sm text-slate-700">
+          <li class="flex gap-2"><i class="fa-solid fa-check text-brand-600"></i> Pias e ralos simples</li>
+          <li class="flex gap-2"><i class="fa-solid fa-check text-brand-600"></i> Sem quebra</li>
+          <li class="flex gap-2"><i class="fa-solid fa-check text-brand-600"></i> Garantia 30 dias</li>
+        </ul>
+        <a target="_blank" rel="noopener" href="javascript:void(0)" onclick="window.open(waLink('Quero o plano Residencial'),'_blank')" class="mt-5 inline-flex items-center justify-center gap-2 w-full rounded-xl bg-brand-600 px-4 py-2.5 text-white font-semibold hover:bg-brand-700 transition">
+          Agendar
+        </a>
+      </article>
+
+      <!-- Plano Completo -->
+      <article class="bg-white rounded-2xl p-6 shadow-soft border-2 border-brand-600 relative">
+        <div class="absolute -top-3 right-6 bg-brand-600 text-white text-xs px-2 py-1 rounded">Mais pedido</div>
+        <div class="text-sm font-semibold text-brand-700">Completo</div>
+        <div class="mt-2 text-3xl font-extrabold">R$ 249<span class="text-base font-semibold text-slate-500"> / a partir</span></div>
+        <ul class="mt-4 space-y-2 text-sm text-slate-700">
+          <li class="flex gap-2"><i class="fa-solid fa-check text-brand-600"></i> Vaso sanitário</li>
+          <li class="flex gap-2"><i class="fa-solid fa-check text-brand-600"></i> Caixa de gordura</li>
+          <li class="flex gap-2"><i class="fa-solid fa-check text-brand-600"></i> Garantia 60 dias</li>
+        </ul>
+       <a target="_blank" rel="noopener" href="javascript:void(0)" onclick="window.open(waLink('Quero o plano Residencial'),'_blank')" class="mt-5 inline-flex items-center justify-center gap-2 w-full rounded-xl bg-brand-600 px-4 py-2.5 text-white font-semibold hover:bg-brand-700 transition">
+          Agendar
+        </a>
+      </article>
+
+      <!-- Plano Comercial -->
+      <article class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
+        <div class="text-sm font-semibold text-brand-700">Comercial</div>
+        <div class="mt-2 text-3xl font-extrabold">R$ 399<span class="text-base font-semibold text-slate-500"> / a partir</span></div>
+        <ul class="mt-4 space-y-2 text-sm text-slate-700">
+          <li class="flex gap-2"><i class="fa-solid fa-check text-brand-600"></i> Hidrojateamento</li>
+          <li class="flex gap-2"><i class="fa-solid fa-check text-brand-600"></i> Contratos PJ</li>
+          <li class="flex gap-2"><i class="fa-solid fa-check text-brand-600"></i> Nota fiscal</li>
+        </ul>
+       <a target="_blank" rel="noopener" href="javascript:void(0)" onclick="window.open(waLink('Quero o plano Residencial'),'_blank')" class="mt-5 inline-flex items-center justify-center gap-2 w-full rounded-xl bg-brand-600 px-4 py-2.5 text-white font-semibold hover:bg-brand-700 transition">
+          Agendar
+        </a>
+      </article>
+    </div>
+  </section>
+  <!-- Depoimentos -->
+  <section id="depoimentos" class="bg-white">
+    <div class="mx-auto container-tight px-4 py-16">
+      <header class="text-center max-w-2xl mx-auto mb-10">
+        <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-brand-800">O que dizem nossos clientes</h2>
+        <p class="mt-3 text-slate-600">Atendimento humano, serviço limpo e resultado duradouro.</p>
+      </header>
+
+      <div class="grid md:grid-cols-3 gap-4">
+        <figure class="stroke-card rounded-xl p-5 bg-white shadow-sm">
+          <blockquote class="text-slate-700">“Chegaram rápido e resolveram o vaso sem quebrar nada. Recomendo!”</blockquote>
+          <figcaption class="mt-3 text-sm text-slate-500">— Ana Paula, Centro</figcaption>
+        </figure>
+        <figure class="stroke-card rounded-xl p-5 bg-white shadow-sm">
+          <blockquote class="text-slate-700">“Equipe educada e preço justo. Já salvei o contato.”</blockquote>
+          <figcaption class="mt-3 text-sm text-slate-500">— João Ricardo, São Pelegrino</figcaption>
+        </figure>
+        <figure class="stroke-card rounded-xl p-5 bg-white shadow-sm">
+          <blockquote class="text-slate-700">“Fizeram limpeza da caixa de gordura e deixaram tudo limpo.”</blockquote>
+          <figcaption class="mt-3 text-sm text-slate-500">— Carla M., Exposição</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="mx-auto container-tight px-4 py-16">
+    <header class="text-center max-w-2xl mx-auto mb-8">
+      <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-brand-800">Perguntas frequentes</h2>
+      <p class="mt-3 text-slate-600">Dúvidas comuns sobre prazo, garantia e método.</p>
+    </header>
+
+    <div class="grid md:grid-cols-2 gap-4">
+      <details class="stroke-card bg-white rounded-xl p-5 shadow-sm">
+        <summary class="flex items-center justify-between cursor-pointer">
+          <h3 class="font-semibold">Vocês atendem 24 horas mesmo?</h3>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <p class="mt-3 text-slate-600 text-sm">Sim, nosso plantão funciona todos os dias, inclusive finais de semana e feriados.</p>
+      </details>
+
+      <details class="stroke-card bg-white rounded-xl p-5 shadow-sm">
+        <summary class="flex items-center justify-between cursor-pointer">
+          <h3 class="font-semibold">Há necessidade de quebrar piso/parede?</h3>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <p class="mt-3 text-slate-600 text-sm">Não na maioria dos casos. Utilizamos molas, sondas e jato de alta pressão que evitam quebra.</p>
+      </details>
+
+      <details class="stroke-card bg-white rounded-xl p-5 shadow-sm">
+        <summary class="flex items-center justify-between cursor-pointer">
+          <h3 class="font-semibold">Emitimos nota fiscal?</h3>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <p class="mt-3 text-slate-600 text-sm">Sim. Para serviços residenciais e comerciais, mediante dados do contratante.</p>
+      </details>
+
+      <details class="stroke-card bg-white rounded-xl p-5 shadow-sm">
+        <summary class="flex items-center justify-between cursor-pointer">
+          <h3 class="font-semibold">Qual a forma de pagamento?</h3>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <p class="mt-3 text-slate-600 text-sm">Aceitamos PIX, cartão e dinheiro. Para PJ, boletos e contratos.</p>
+      </details>
+    </div>
+  </section>
+  <!-- Contato -->
+  <section id="contato" class="bg-white">
+    <div class="mx-auto container-tight px-4 py-16">
+      <div class="grid md:grid-cols-2 gap-8 items-start">
+        <div>
+          <header class="mb-4">
+            <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-brand-800">Solicite seu orçamento</h2>
+            <p class="mt-2 text-slate-600">Responda em poucos minutos no WhatsApp. Atendimento em toda <a href="http://" target="_blank" rel="noopener noreferrer"></a> <strong>Caxias do Sul</strong> e região.</p>
+          </header>
+
+          <form class="stroke-card bg-slate-50 rounded-xl p-5" onsubmit="submitForm(event)">
+            <div class="grid sm:grid-cols-2 gap-4">
+              <label class="text-sm">
+                <span class="block mb-1 text-slate-700">Seu nome</span>
+                <input name="nome" type="text" required class="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:ring-2 focus:ring-brand-300 bg-white" placeholder="Seu nome" />
+              </label>
+              <label class="text-sm">
+                <span class="block mb-1 text-slate-700">Telefone/WhatsApp</span>
+                <input name="telefone" type="tel" required oninput="maskPhone(this)" class="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:ring-2 focus:ring-brand-300 bg-white" placeholder="(11) 99999-9999" />
+              </label>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4 mt-4">
+              <label class="text-sm">
+                <span class="block mb-1 text-slate-700">Bairro</span>
+                <input name="bairro" type="text" class="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:ring-2 focus:ring-brand-300 bg-white" placeholder="Seu bairro" />
+              </label>
+              <label class="text-sm">
+                <span class="block mb-1 text-slate-700">Serviço</span>
+                <select name="servico" class="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:ring-2 focus:ring-brand-300 bg-white">
+                  <option value="Pia e cozinha">Pia e cozinha</option>
+                  <option value="Ralos e banheiro">Ralos e banheiro</option>
+                  <option value="Vaso sanitário">Vaso sanitário</option>
+                  <option value="Caixa de gordura">Caixa de gordura</option>
+                  <option value="Esgoto">Esgoto</option>
+                  <option value="Hidrojateamento">Hidrojateamento</option>
+                </select>
+              </label>
+            </div>
+
+            <label class="text-sm mt-4 block">
+              <span class="block mb-1 text-slate-700">Descreva o problema</span>
+              <textarea name="descricao" rows="4" class="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:ring-2 focus:ring-brand-300 bg-white" placeholder="Ex.: ralo do banheiro voltando água..."></textarea>
+            </label>
+
+            <div class="mt-5 flex flex-col sm:flex-row gap-3">
+              <button type="submit" class="inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 font-semibold shadow-soft bg-[#25D366] hover:bg-[#128C7E] text-white transition">
+              <i class="fa-brands fa-whatsapp text-lg"></i> Enviar pelo WhatsApp
+               </button>
+
+              <a href="javascript:void(0)" onclick="navigator.clipboard.writeText(COMPANY.phoneHuman)" class="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 font-semibold text-slate-800 border border-slate-300 hover:bg-slate-50 transition">
+                <i class="fa-regular fa-copy"></i> Copiar telefone
+              </a>
+            </div>
+          </form>
+        </div>
+
+        <aside class="stroke-card rounded-xl p-5 bg-white">
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-headset text-brand-600 text-xl"></i>
+            <div>
+              <h3 class="font-semibold">Atendimento imediato</h3>
+              <p class="text-sm text-slate-600">Plantão 24/7, inclusive fins de semana e feriados.</p>
+            </div>
+          </div>
+
+          <div class="mt-4 grid sm:grid-cols-2 gap-4 text-sm">
+            <div class="rounded-lg bg-slate-50 p-4">
+              <div class="text-slate-500">Telefone/WhatsApp</div>
+              <div class="font-semibold text-lg mt-1"><span id="phoneHumanSpan">(54) 99999-9999</span></div>
+              <div class="mt-2 flex gap-2">
+                <a ... class="inline-flex items-center gap-2 rounded-lg px-3 py-2 font-semibold shadow-soft bg-[#25D366] hover:bg-[#128C7E] text-white transition">
+                  <i class="fa-brands fa-whatsapp"></i> Chamar
+                </a>
+
+                <button onclick="copyPhone(this)" class="inline-flex items-center gap-2 rounded-lg bg-white border border-slate-300 px-3 py-2 font-semibold hover:bg-slate-50 transition">Copiar</button>
+              </div>
+            </div>
+
+            <div class="rounded-lg bg-slate-50 p-4">
+              <div class="text-slate-500">Horário</div>
+              <div class="font-semibold mt-1">24 horas • 7 dias</div>
+              <div class="text-slate-500 mt-1">Atendimento imediato</div>
+            </div>
+          </div>
+
+          <div class="mt-4 rounded-lg border border-dashed border-slate-300 p-4 text-sm">
+            <div class="text-slate-500">Áreas atendidas</div>
+            <p class="mt-1">Caxias do Sul, Flores da Cunha, Farroupilha, Bento Gonçalves e região.</p>
+          </div>
+
+          <a target="_blank" rel="noopener" href="#servicos" class="mt-4 inline-flex items-center gap-2 rounded-lg bg-brand-600 px-4 py-2 text-white font-semibold hover:bg-brand-700 transition">
+            <i class="fa-solid fa-wrench"></i> Ver todos os serviços
+          </a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-gradient-to-r from-brand-600 to-brand-700 text-white">
+    <div class="mx-auto container-tight px-4 py-10 flex flex-col md:flex-row items-center justify-between gap-5">
+      <div>
+        <h2 class="text-2xl font-extrabold">Precisa de ajuda agora?</h2>
+        <p class="text-white/90">Equipe a caminho em minutos, conforme sua região.</p>
+      </div>
+      <a target="_blank" rel="noopener" href="javascript:void(0)" onclick="window.open(waLink(),'_blank')" class="inline-flex items-center gap-2 rounded-xl bg-white px-5 py-3 text-brand-700 font-semibold hover:bg-slate-100 transition">
+        <i class="fa-brands fa-whatsapp text-lg"></i> Chamar no WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-brand-800 text-white">
+    <div class="mx-auto container-tight px-4 py-10 grid md:grid-cols-4 gap-8 text-sm">
+      <div>
+        <div class="flex items-center gap-2">
+          <img src="assets/img/logo.png" alt="Logo R&N" class="w-12 h-12">
+          <span class="font-semibold">R&N Desentupidora</span>
+        </div>
+        <p class="mt-3 text-slate-200">Sua parceira para resolver entupimentos com rapidez e segurança.</p>
+      </div>
+      <nav>
+        <div class="font-semibold">Empresa</div>
+        <ul class="mt-2 space-y-2">
+          <li><a class="hover:text-brand-300" href="#servicos">Serviços</a></li>
+          <li><a class="hover:text-brand-300" href="#como-funciona">Como funciona</a></li>
+          <li><a class="hover:text-brand-300" href="#precos">Valores</a></li>
+          <li><a class="hover:text-brand-300" href="#faq">Dúvidas</a></li>
+        </ul>
+      </nav>
+      <div>
+        <div class="font-semibold">Contato</div>
+        <ul class="mt-2 space-y-2">
+          <li>WhatsApp: <a class="hover:text-brand-300 underline" target="_blank" rel="noopener" href="javascript:void(0)" onclick="window.open(waLink(),'_blank')">(11) 99999-9999</a></li>
+          <li>E-mail: <a class="hover:text-brand-300 underline" href="mailto:contato@rn.com.br">contato@rn.com.br</a></li>
+          <li>Atendimento: 24h / 7 dias</li>
+        </ul>
+      </div>
+      <div>
+        <div class="font-semibold">Legal</div>
+        <ul class="mt-2 space-y-2">
+          <li><a class="hover:text-brand-300" href="#">Política de Privacidade</a></li>
+          <li><a class="hover:text-brand-300" href="#">Termos de Uso</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/20 py-4 text-center text-xs text-slate-200">
+      © <span id="year"></span> R&N Desentupidora. Todos os direitos reservados.
+    </div>
+  </footer>
+
+  <!-- Botão flutuante WhatsApp -->
+  <a ... class="fixed bottom-5 right-5 inline-flex items-center gap-2 rounded-full px-4 py-3 font-semibold shadow-soft bg-[#25D366] hover:bg-[#128C7E] text-white transition">
+  <i class="fa-brands fa-whatsapp"></i> Falar agora
+ </a>
+
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('phoneHumanSpan').textContent = COMPANY.phoneHuman;
+  </script>
+  <!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+  const swiper = new Swiper('.heroSwiper', {
+    loop: true,
+    speed: 600,
+    autoplay: { delay: 3000, disableOnInteraction: false },
+    pagination: { el: '.heroSwiper .swiper-pagination', clickable: true },
+    navigation: {
+      nextEl: '.heroSwiper .swiper-button-next',
+      prevEl: '.heroSwiper .swiper-button-prev'
+    }
+  });
+</script>
+
+</body>
+</html>
