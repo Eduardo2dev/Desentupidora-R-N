@@ -106,7 +106,7 @@
   <!-- Topbar -->
   <div class="bg-brand-700 text-white text-sm">
     <div class="mx-auto container-tight px-4 py-2 flex items-center justify-center gap-6">
-      <p>Atendimento 24h em <strong>Caxias do Sul</strong> e região</p>
+      <p>Atendimento 24h em toda <strong>Serra Gaúcha
       </div>
     </div>
   </div>
@@ -460,57 +460,10 @@
     <div class="mx-auto container-tight px-4 py-16">
       <div class="grid md:grid-cols-2 gap-8 items-start">
         <div>
-          <header class="mb-4">
+          <header class="mb- text-center">
             <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-brand-800">Solicite seu orçamento</h2>
-            <p class="mt-2 text-slate-600">Responda em poucos minutos no WhatsApp. Atendimento em toda <a href="http://" target="_blank" rel="noopener noreferrer"></a> <strong>Caxias do Sul</strong> e região.</p>
+            <p class="mt-2 text-slate-600">Responda em poucos minutos no WhatsApp. Atendimento em toda <a href="http://" target="_blank" rel="noopener noreferrer"></a> <strong>Serra Gaúcha</p>
           </header>
-
-          <form class="stroke-card bg-slate-50 rounded-xl p-5" onsubmit="submitForm(event)">
-            <div class="grid sm:grid-cols-2 gap-4">
-              <label class="text-sm">
-                <span class="block mb-1 text-slate-700">Seu nome</span>
-                <input name="nome" type="text" required class="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:ring-2 focus:ring-brand-300 bg-white" placeholder="Seu nome" />
-              </label>
-              <label class="text-sm">
-                <span class="block mb-1 text-slate-700">Telefone/WhatsApp</span>
-                <input name="telefone" type="tel" required oninput="maskPhone(this)" class="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:ring-2 focus:ring-brand-300 bg-white" placeholder="(11) 99999-9999" />
-              </label>
-            </div>
-
-            <div class="grid sm:grid-cols-2 gap-4 mt-4">
-              <label class="text-sm">
-                <span class="block mb-1 text-slate-700">Bairro</span>
-                <input name="bairro" type="text" class="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:ring-2 focus:ring-brand-300 bg-white" placeholder="Seu bairro" />
-              </label>
-              <label class="text-sm">
-                <span class="block mb-1 text-slate-700">Serviço</span>
-                <select name="servico" class="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:ring-2 focus:ring-brand-300 bg-white">
-                  <option value="Pia e cozinha">Pia e cozinha</option>
-                  <option value="Ralos e banheiro">Ralos e banheiro</option>
-                  <option value="Vaso sanitário">Vaso sanitário</option>
-                  <option value="Caixa de gordura">Caixa de gordura</option>
-                  <option value="Esgoto">Esgoto</option>
-                  <option value="Hidrojateamento">Hidrojateamento</option>
-                </select>
-              </label>
-            </div>
-
-            <label class="text-sm mt-4 block">
-              <span class="block mb-1 text-slate-700">Descreva o problema</span>
-              <textarea name="descricao" rows="4" class="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:ring-2 focus:ring-brand-300 bg-white" placeholder="Ex.: ralo do banheiro voltando água..."></textarea>
-            </label>
-
-            <div class="mt-5 flex flex-col sm:flex-row gap-3">
-              <button type="submit" class="inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 font-semibold shadow-soft bg-[#25D366] hover:bg-[#128C7E] text-white transition">
-              <i class="fa-brands fa-whatsapp text-lg"></i> Enviar pelo WhatsApp
-               </button>
-
-              <a href="javascript:void(0)" onclick="navigator.clipboard.writeText(COMPANY.phoneHuman)" class="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 font-semibold text-slate-800 border border-slate-300 hover:bg-slate-50 transition">
-                <i class="fa-regular fa-copy"></i> Copiar telefone
-              </a>
-            </div>
-          </form>
-        </div>
 
         <aside class="stroke-card rounded-xl p-5 bg-white">
           <div class="flex items-center gap-3">
@@ -550,6 +503,22 @@
             <i class="fa-solid fa-wrench"></i> Ver todos os serviços
           </a>
         </aside>
+     </div>
+  <div class="flex flex-col items-center justify-center relative w-full">
+  <!-- Círculo cinza claro -->
+  <div class="absolute w-72 h-72 bg-gray-300 rounded-full blur-2xl opacity-70"></div>
+
+  <!-- Imagem -->
+  <img src="assets/img/orcamento.png" 
+       alt="Atendente" 
+       class="relative rounded-full shadow-lg max-w-[320px] h-auto">
+
+       <!-- Texto abaixo (badge) -->
+  <span class="relative mt-4 px-6 py-3 bg-blue-500 text-white font-semibold rounded-full shadow-lg hover:bg-blue-600 transition-colors">
+  Receba grátis seu orçamento hoje mesmo
+</span>
+  </div>
+
       </div>
     </div>
   </section>
