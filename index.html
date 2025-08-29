@@ -157,6 +157,7 @@
       </nav>
     </div>
   </header>
+  
   <!-- Hero -->
   <section class="relative overflow-hidden">
     <div class="absolute inset-0 -z-10 bg-gradient-to-b from-brand-50 via-white to-white"></div>
@@ -176,10 +177,18 @@
         </p>
 
         <div class="mt-6 flex flex-col sm:flex-row gap-3">
-          <a ... class="inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 font-semibold shadow-soft bg-[#25D366] hover:bg-[#128C7E] text-white transition">
+          <a id="btn-orcamento" 
+          class="inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 font-semibold shadow-soft bg-[#25D366] hover:bg-[#128C7E] text-white transition">
             <i class="fa-brands fa-whatsapp text-lg"></i>
            Pedir orçamento
           </a>
+
+        <script>
+          const btn = document.getElementById("btn-orcamento");
+          btn.href = waLink("Quero um orçamento"); // adiciona a mensagem extra que você quiser
+          btn.target = "_blank"; // abre em nova aba
+        </script>
+
           <a href="#servicos" class="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 font-semibold text-slate-800 border border-slate-300 hover:bg-slate-50 transition">
             <i class="fa-solid fa-wrench"></i>
             Ver serviços
